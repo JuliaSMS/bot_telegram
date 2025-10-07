@@ -26,3 +26,26 @@ Notas
 
 - Os métodos de integração com Gemini e geração de vídeo estão preparados como stubs/implementações iniciais — substitua pelos endpoints/parametrizações reais da sua conta.
 - O serviço de banco de dados usa o cliente do Supabase (Subbase) e espera as tabelas `users`, `logs`, `planos` já criadas.
+
+Replit (passo a passo)
+
+1. No Replit, clique em Import from GitHub e cole: https://github.com/JuliaSMS/bot_telegram.git
+2. Vá em Secrets (Environment variables) e adicione as chaves abaixo (obrigatórias para produção):
+
+  - TELEGRAM_TOKEN
+  - GEMINI_API_KEY
+  - SUPABASE_URL
+  - SUPABASE_KEY (ou SUPABASE_SERVICE_KEY)
+  - DATABASE_URL (opcional se você usar Supabase Storage directly)
+
+3. Em Shell (ou na UI), confirme o comando de run: o arquivo `.replit` já executa `pip install -r requirements.txt && python server.py`.
+
+4. Configure Always On / Uptime pinger (Replit paid feature) ou adicione UptimeRobot para pingar `https://<your-repl>.repl.co/` a cada 5 minutos.
+
+5. Teste no Telegram: envie `/start`, `/gerar_texto olá`, `/gerar_imagem cena fofa`.
+
+Notas de produção
+
+- Para deploy estável prefira Webhooks (atualize `BOT_MODE=webhook` e `WEBHOOK_URL` no `.env`) e use um servidor com HTTPS.
+- Proteja suas chaves (não comite `.env`). Use os secrets da plataforma.
+
