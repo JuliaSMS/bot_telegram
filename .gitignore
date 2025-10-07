@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.env
+
+# Temp storage
+.temp_storage/
+
+# Editor
+.vscode/
+*.swp
+
+# Tests
+.pytest_cache/
